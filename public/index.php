@@ -174,6 +174,49 @@ $router->get('/admin/users', function() {
     $controller->users();
 });
 
+$router->get('/admin/users/create', function() {
+    requireRole('admin');
+    $controller = new AdminController();
+    $controller->createUser();
+});
+
+$router->post('/admin/users/create', function() {
+    requireRole('admin');
+    $controller = new AdminController();
+    $controller->createUser();
+});
+
+$router->get('/admin/users/edit', function() {
+    requireRole('admin');
+    $controller = new AdminController();
+    $controller->editUser();
+});
+
+$router->post('/admin/users/edit', function() {
+    requireRole('admin');
+    $controller = new AdminController();
+    $controller->editUser();
+});
+
+$router->get('/admin/users/delete', function() {
+    requireRole('admin');
+    $controller = new AdminController();
+    $controller->deleteUser();
+});
+
+$router->get('/admin/system-info', function() {
+    requireRole('admin');
+    $controller = new AdminController();
+    $controller->systemInfo();
+});
+
+// Delivery status update route
+$router->post('/deliveries/status/update', function() {
+    requireAuth();
+    $controller = new DeliveryController();
+    $controller->updateStatus();
+});
+
 // API routes for AJAX
 $router->post('/api/scan-product', function() {
     requireAuth();
