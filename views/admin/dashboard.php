@@ -1,4 +1,7 @@
 <?php 
+if (!defined('APP_NAME')) {
+    define('APP_NAME', 'Sistema de Control de Embarques - DAECHANG');
+}
 $pageTitle = 'Panel de Administración - ' . APP_NAME;
 include '../views/layouts/header.php'; 
 ?>
